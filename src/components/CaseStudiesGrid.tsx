@@ -62,8 +62,14 @@ const caseStudies: CaseStudyProps[] = [
 
 const CaseStudiesGrid = () => {
   return (
-    <section className="w-full py-12 md:py-24">
+    <section className="w-full py-12 md:py-24 bg-white">
       <div className="container px-4 md:px-8">
+        <div className="mb-10 text-center md:text-left">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Our Case Studies</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto md:mx-0">
+            Discover how we've helped brands transform their digital marketing strategy
+          </p>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {caseStudies.map((study) => (
             <CaseStudyCard

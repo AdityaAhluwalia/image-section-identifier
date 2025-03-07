@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import { Instagram, Twitter, Youtube, Facebook } from 'lucide-react';
 
 interface SocialStat {
   count: string;
@@ -27,21 +28,21 @@ const CaseStudyCard: React.FC<CaseStudyProps> = ({
   const renderPlatformIcon = (platform: string) => {
     switch (platform) {
       case 'instagram':
-        return <div className="h-5 w-5 rounded-full bg-pink-500" title="Instagram" />;
+        return <Instagram size={18} className="text-pink-500" title="Instagram" />;
       case 'twitter':
-        return <div className="h-5 w-5 rounded-full bg-blue-400" title="Twitter/X" />;
+        return <Twitter size={18} className="text-blue-400" title="Twitter/X" />;
       case 'youtube':
-        return <div className="h-5 w-5 rounded-full bg-red-600" title="YouTube" />;
+        return <Youtube size={18} className="text-red-600" title="YouTube" />;
       case 'facebook':
-        return <div className="h-5 w-5 rounded-full bg-blue-600" title="Facebook" />;
+        return <Facebook size={18} className="text-blue-600" title="Facebook" />;
       default:
-        return <div className="h-5 w-5 rounded-full bg-gray-400" />;
+        return null;
     }
   };
 
   return (
-    <Card className="overflow-hidden h-full flex flex-col hover:shadow-lg transition-shadow">
-      <div className="relative h-48 w-full bg-gray-100 overflow-hidden">
+    <Card className="overflow-hidden h-full flex flex-col hover:shadow-lg transition-shadow border border-gray-200">
+      <div className="relative h-48 md:h-56 w-full bg-gray-100 overflow-hidden">
         <img
           src={image} 
           alt={title}
@@ -49,8 +50,8 @@ const CaseStudyCard: React.FC<CaseStudyProps> = ({
         />
       </div>
       <CardContent className="flex flex-col grow p-5">
-        <h3 className="font-bold text-lg line-clamp-2">{title}</h3>
-        <p className="text-sm text-gray-600 mt-2 mb-4">{subtitle}</p>
+        <h3 className="font-bold text-lg line-clamp-2 text-gray-800">{title}</h3>
+        <p className="text-sm text-gray-600 mt-2 mb-4 line-clamp-2">{subtitle}</p>
         
         <div className="flex gap-2 mt-auto">
           {platforms.map((platform, index) => (
@@ -60,12 +61,14 @@ const CaseStudyCard: React.FC<CaseStudyProps> = ({
           ))}
         </div>
       </CardContent>
-      <CardFooter className="bg-gray-50 px-5 py-3 text-sm border-t flex flex-col gap-1">
+      <CardFooter className="bg-gray-50 px-5 py-3 text-sm border-t flex flex-col gap-2">
         {stats.map((stat, index) => (
-          <div key={index} className="flex items-center gap-2">
-            <div className="h-2 w-2 rounded-full bg-purple-500"></div>
-            <span className="font-medium">{stat.count}</span>
-            <span className="text-gray-600">{stat.description}</span>
+          <div key={index} className="flex items-start gap-2">
+            <div className="h-2 w-2 rounded-full bg-purple-500 mt-1.5"></div>
+            <div>
+              <span className="font-semibold text-gray-800">{stat.count}</span>
+              <span className="text-gray-600 ml-1">{stat.description}</span>
+            </div>
           </div>
         ))}
       </CardFooter>
