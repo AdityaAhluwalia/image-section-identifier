@@ -28,13 +28,29 @@ const CaseStudyCard: React.FC<CaseStudyProps> = ({
   const renderPlatformIcon = (platform: string) => {
     switch (platform) {
       case 'instagram':
-        return <Instagram size={18} className="text-pink-500" title="Instagram" />;
+        return (
+          <span title="Instagram">
+            <Instagram size={18} className="text-pink-500" />
+          </span>
+        );
       case 'twitter':
-        return <Twitter size={18} className="text-blue-400" title="Twitter/X" />;
+        return (
+          <span title="Twitter/X">
+            <Twitter size={18} className="text-blue-400" />
+          </span>
+        );
       case 'youtube':
-        return <Youtube size={18} className="text-red-600" title="YouTube" />;
+        return (
+          <span title="YouTube">
+            <Youtube size={18} className="text-red-600" />
+          </span>
+        );
       case 'facebook':
-        return <Facebook size={18} className="text-blue-600" title="Facebook" />;
+        return (
+          <span title="Facebook">
+            <Facebook size={18} className="text-blue-600" />
+          </span>
+        );
       default:
         return null;
     }
